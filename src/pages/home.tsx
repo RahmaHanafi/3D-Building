@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Level from "../components/level";
 import { Link } from "react-router-dom";
-import image from "../../src/assets/floor.png";
+// import image from "../../src/assets/floor.png";
 // import LocMark from "../assets/locationMark.svg";
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -33,7 +33,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -49,7 +49,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -65,7 +65,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -81,7 +81,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -97,7 +97,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -113,7 +113,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),

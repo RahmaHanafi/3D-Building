@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
-import pin from "../../src/assets/pin.png";
+// import pin from "../../src/assets/pin.png";
 
 interface LevelProps {
   color: number;
@@ -60,7 +60,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
         const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = texturePinLoader.load(pin);
+        const texturePin = texturePinLoader.load("../../src/assets/pin.png");
         const smallCubeMaterial = new THREE.MeshPhongMaterial({
           // color: 0xffeeaa, // Set color for the small cube
           map: texturePin,

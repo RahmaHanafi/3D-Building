@@ -1,6 +1,6 @@
 import Level from "../components/level";
 import { useParams } from "react-router-dom";
-import image from "../../src/assets/floor.png";
+// import image from "../../src/assets/floor.png";
 // import LocMark from "../assets/locationMark.svg";
 
 function Floor() {
@@ -15,7 +15,7 @@ function Floor() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 1.5}
-          textureUrl={image}
+          textureUrl={"../../src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       </div>
