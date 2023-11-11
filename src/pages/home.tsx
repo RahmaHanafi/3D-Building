@@ -17,7 +17,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.PNG"}
           // svgUrl={LocMark}
         />
       ),
@@ -33,7 +33,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -49,7 +49,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -65,7 +65,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -81,7 +81,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -97,7 +97,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
@@ -113,7 +113,7 @@ function Home() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 10}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"src/assets/floor.png"}
           // svgUrl={LocMark}
         />
       ),
