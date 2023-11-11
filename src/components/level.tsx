@@ -38,7 +38,9 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
 
       const geometry = new THREE.BoxGeometry(2, 0.01, 2);
       const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(textureUrl);
+      const texture = textureLoader.load(
+        `/src/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
+      );
       const material = new THREE.MeshBasicMaterial({
         color: color,
         transparent: true, // Enable transparency
@@ -60,13 +62,13 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
         const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = texturePinLoader.load("../../src/assets/pin.png");
+        const texturePin = texturePinLoader.load("/src/assets/pin.png");
         const smallCubeMaterial = new THREE.MeshPhongMaterial({
           // color: 0xffeeaa, // Set color for the small cube
           map: texturePin,
           alphaTest: 0.6,
-          color: 0xbb0000,
-          blendColor: 0xbb0000,
+          // color: 0xbb0000,
+          // blendColor: 0xbb0000,
 
           // color: 0xbbbbbb,
           // specular: 0x000005,
@@ -82,23 +84,23 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         smallCube.position.set(0, 0.2, 0); // Set the desired position of the small cube relative to the main cube
         cube.add(smallCube); // Add the small cube as a child of the main cube
 
-        // Create a raycaster
-        const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2();
+        // // Create a raycaster
+        // const raycaster = new THREE.Raycaster();
+        // const mouse = new THREE.Vector2();
 
-        // Handle click event on the small cube
-        function onClick(event: MouseEvent) {
-          event.preventDefault();
-          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-          raycaster.setFromCamera(mouse, camera);
-          const intersects = raycaster.intersectObject(smallCube);
-          if (intersects.length > 0) {
-            console.log("Small cube clicked!");
-            // Perform desired actions when the small cube is clicked
-          }
-        }
-        window.addEventListener("click", onClick);
+        // // Handle click event on the small cube
+        // function onClick(event: MouseEvent) {
+        //   event.preventDefault();
+        //   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        //   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        //   raycaster.setFromCamera(mouse, camera);
+        //   const intersects = raycaster.intersectObject(smallCube);
+        //   if (intersects.length > 0) {
+        //     console.log("Small cube clicked!");
+        //     // Perform desired actions when the small cube is clicked
+        //   }
+        // }
+        // window.addEventListener("click", onClick);
 
         // cube.addEventListener("click", () => {
         //   console.log("Small cube clicked!");

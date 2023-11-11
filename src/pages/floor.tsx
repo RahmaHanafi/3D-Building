@@ -15,7 +15,7 @@ function Floor() {
           color={0xffffff}
           width={window.innerWidth / 2}
           height={window.innerHeight / 1.5}
-          textureUrl={"../../src/assets/floor.png"}
+          textureUrl={"floor"}
           // svgUrl={LocMark}
         />
       </div>
