@@ -25,11 +25,6 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
       renderer.setSize(width, height);
       renderer.setClearColor(0x000000, 0); // Set background color to black with 0 opacity
       refContainer.current.appendChild(renderer.domElement);
-      // console.log(
-      //   renderer,
-      //   renderer.domElement,
-      //   renderer.domElement.previousElementSibling
-      // );
       if (renderer.domElement.previousElementSibling) {
         refContainer.current.removeChild(
           renderer.domElement.previousElementSibling
@@ -39,7 +34,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
       const geometry = new THREE.BoxGeometry(2, 0.01, 2);
       const textureLoader = new THREE.TextureLoader();
       const texture = textureLoader.load(
-        `/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
+        `/src/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
       );
       const material = new THREE.MeshBasicMaterial({
         color: color,
@@ -62,9 +57,8 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
         const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = texturePinLoader.load("/assets/pin.png");
+        const texturePin = texturePinLoader.load("/src/assets/pin.png");
         const smallCubeMaterial = new THREE.MeshPhongMaterial({
-          // color: 0xffeeaa, // Set color for the small cube
           map: texturePin,
           alphaTest: 0.6,
           // color: 0xbb0000,
@@ -74,11 +68,6 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
           // specular: 0x000005,
           // reflectivity: 0.3,
           // side: THREE.FrontSide,
-          // onBeforeCompile: shader => {
-          //     shader.fragmentShader = shader.fragmentShader.replace('#include <alphatest_fragment>', `
-          //         if ( diffuseColor.a < ALPHATEST ) diffuseColor = vec4(vec3(0.733,0.733,0.733), 1.0);
-          //     `);
-          // }
         });
         const smallCube = new THREE.Mesh(smallCubeGeometry, smallCubeMaterial);
         smallCube.position.set(0, 0.2, 0); // Set the desired position of the small cube relative to the main cube
@@ -101,10 +90,6 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         //   }
         // }
         // window.addEventListener("click", onClick);
-
-        // cube.addEventListener("click", () => {
-        //   console.log("Small cube clicked!");
-        // });
       }
 
       const animate = function () {
@@ -128,7 +113,6 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         const deltaY = evt.clientY - mouseY;
         mouseX = evt.clientX;
         mouseY = evt.clientY;
-        // console.log({ deltaX, deltaY });
         rotateScene(deltaX, deltaY);
       }
 
@@ -171,28 +155,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
 
   return (
     <>
-      <div ref={refContainer}>
-        {/* <p className=" text-red-800 absolute  top-1/2 left-1/2">Rahma</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-6 h-6 absolute  top-1/2 left-1/2 text-red-700"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-          />
-        </svg> */}
-      </div>
+      <div ref={refContainer}></div>
     </>
   );
 }
