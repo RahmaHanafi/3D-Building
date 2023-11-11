@@ -1,6 +1,6 @@
 import Level from "../components/level";
 import { useParams } from "react-router-dom";
-import image from "../assets/floor.png";
+import image from "../../src/assets/floor.png";
 // import LocMark from "../assets/locationMark.svg";
 
 function Floor() {

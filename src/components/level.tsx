@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
-import pin from "../assets/pin.png";
+import pin from "../../src/assets/pin.png";
 
 interface LevelProps {
   color: number;

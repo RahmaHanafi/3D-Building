@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Level from "../components/level";
 import { Link } from "react-router-dom";
-import image from "../assets/floor.png";
+import image from "../../src/assets/floor.png";
 // import LocMark from "../assets/locationMark.svg";
 
 function Home() {
