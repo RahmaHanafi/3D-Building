@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Level from "../components/level";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image from "../assets/floor.png";
-import LocMark from "../assets/locationMark.svg";
+// import LocMark from "../assets/locationMark.svg";
 
 function Home() {
   // const [count, setCount] = useState(0);
 
-  const [levels, setLevels] = useState([
+  const [levels] = useState([
     {
       id: 6,
       level: 6,
