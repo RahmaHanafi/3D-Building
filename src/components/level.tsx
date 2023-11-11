@@ -39,7 +39,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
       const geometry = new THREE.BoxGeometry(2, 0.01, 2);
       const textureLoader = new THREE.TextureLoader();
       const texture = textureLoader.load(
-        `/src/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
+        `/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
       );
       const material = new THREE.MeshBasicMaterial({
         color: color,
@@ -62,7 +62,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
         const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = texturePinLoader.load("/src/assets/pin.png");
+        const texturePin = texturePinLoader.load("/assets/pin.png");
         const smallCubeMaterial = new THREE.MeshPhongMaterial({
           // color: 0xffeeaa, // Set color for the small cube
           map: texturePin,
