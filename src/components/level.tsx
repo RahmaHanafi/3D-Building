@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { useEffect, useRef } from "react";
-// import pin from "../../src/assets/pin.png";
 
 interface LevelProps {
   color: number;
@@ -56,40 +55,31 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
       ) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
-        const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = texturePinLoader.load("/src/assets/pin.png");
-        const smallCubeMaterial = new THREE.MeshPhongMaterial({
+        // const texturePinLoader = new THREE.TextureLoader();
+        const texturePin = textureLoader.load("/src/assets/pin.png");
+        const smallCubeMaterial = new THREE.MeshBasicMaterial({
           map: texturePin,
           alphaTest: 0.6,
-          // color: 0xbb0000,
-          // blendColor: 0xbb0000,
-
-          // color: 0xbbbbbb,
-          // specular: 0x000005,
-          // reflectivity: 0.3,
-          // side: THREE.FrontSide,
         });
         const smallCube = new THREE.Mesh(smallCubeGeometry, smallCubeMaterial);
         smallCube.position.set(0, 0.2, 0); // Set the desired position of the small cube relative to the main cube
         cube.add(smallCube); // Add the small cube as a child of the main cube
 
-        // // Create a raycaster
-        // const raycaster = new THREE.Raycaster();
-        // const mouse = new THREE.Vector2();
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
 
-        // // Handle click event on the small cube
-        // function onClick(event: MouseEvent) {
-        //   event.preventDefault();
-        //   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        //   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-        //   raycaster.setFromCamera(mouse, camera);
-        //   const intersects = raycaster.intersectObject(smallCube);
-        //   if (intersects.length > 0) {
-        //     console.log("Small cube clicked!");
-        //     // Perform desired actions when the small cube is clicked
-        //   }
-        // }
-        // window.addEventListener("click", onClick);
+        function onClick(event: MouseEvent) {
+          event.preventDefault();
+          mouse.x = (event.clientX / width) * 2 - 1;
+          mouse.y = -(event.clientY / height) * 2 + 1;
+          raycaster.setFromCamera(mouse, camera);
+          const intersects = raycaster.intersectObject(smallCube);
+          if (intersects.length > 0) {
+            console.log("Small cube clicked!");
+          }
+        }
+
+        window.addEventListener("click", onClick);
       }
 
       const animate = function () {
