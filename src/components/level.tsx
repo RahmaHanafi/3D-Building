@@ -33,7 +33,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
 
       const geometry = new THREE.BoxGeometry(2, 0.01, 2);
       const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(`/public/${textureUrl}.png`);
+      const texture = textureLoader.load(`/${textureUrl}.jpg`);
       const material = new THREE.MeshBasicMaterial({
         color: color,
         transparent: true, // Enable transparency
