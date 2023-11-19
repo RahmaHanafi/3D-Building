@@ -20,6 +20,7 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         0.1,
         1000
       );
+
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(width, height);
       renderer.setClearColor(0x000000, 0); // Set background color to black with 0 opacity
@@ -32,14 +33,13 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
 
       const geometry = new THREE.BoxGeometry(2, 0.01, 2);
       const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(
-        `/src/assets/${textureUrl.split(" ")[0].toLowerCase()}.png`
-      );
+      const texture = textureLoader.load(`/public/${textureUrl}.png`);
       const material = new THREE.MeshBasicMaterial({
         color: color,
         transparent: true, // Enable transparency
         opacity: 1, // Set desired opacity value
         map: texture,
+        name: "floor",
       });
 
       const cube = new THREE.Mesh(geometry, material);
@@ -56,30 +56,53 @@ function Level({ color, width, height, textureUrl }: LevelProps) {
         // Create the small cube
         const smallCubeGeometry = new THREE.BoxGeometry(0.01, 0.25, 0.2);
         // const texturePinLoader = new THREE.TextureLoader();
-        const texturePin = textureLoader.load("/src/assets/pin.png");
+        const texturePin = textureLoader.load("/pin.png");
         const smallCubeMaterial = new THREE.MeshBasicMaterial({
           map: texturePin,
           alphaTest: 0.6,
+          // color: color,
+          // opacity: 1,
+          name: "pin",
         });
         const smallCube = new THREE.Mesh(smallCubeGeometry, smallCubeMaterial);
         smallCube.position.set(0, 0.2, 0); // Set the desired position of the small cube relative to the main cube
         cube.add(smallCube); // Add the small cube as a child of the main cube
+        smallCube.name = "pin";
+        cube.name = "floor1";
+
+        // console.log({ smallCube });
 
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
 
+        renderer.domElement.addEventListener("click", onClick, false);
+
         function onClick(event: MouseEvent) {
           event.preventDefault();
-          mouse.x = (event.clientX / width) * 2 - 1;
-          mouse.y = -(event.clientY / height) * 2 + 1;
+
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
           raycaster.setFromCamera(mouse, camera);
-          const intersects = raycaster.intersectObject(smallCube);
+
+          var intersects = raycaster.intersectObjects(scene.children, true);
+
           if (intersects.length > 0) {
-            console.log("Small cube clicked!");
+            console.log({
+              // "Intersection:": intersects[0],
+              name: intersects[0].object.name,
+              // position: intersects[0].object.position,
+              // intersects,
+              // mouse,
+              // raycaster,
+              // children: scene.children,
+            });
+
+            if (intersects[0].object.name === smallCube.name) {
+              console.log("smallcube is clickd");
+            }
           }
         }
-
-        window.addEventListener("click", onClick);
       }
 
       const animate = function () {
